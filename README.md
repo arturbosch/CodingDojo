@@ -8,3 +8,5 @@ GameOfLife - http://www.codingdojo.org/ - KataGameOfLife
 Tannenbaum - https://app.box.com/s/l0w5imeu9t3j6jj2glne
 
 Linked List
+
+Maths - Mathematical exercices like pibonacci and pythagoras numbers
