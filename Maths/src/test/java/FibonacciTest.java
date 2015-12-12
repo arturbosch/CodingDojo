@@ -16,5 +16,9 @@ public class FibonacciTest {
 		Fibonacci.sequenceLongOf(1_000/*_000*/)
 				.forEach(pair -> System.out.println(pair[0] + ", " + pair[1]));
 	}
-	
+
+	@Test
+	public void testNumbers() throws Exception {
+		Fibonacci.numbers(1000).forEach(System.out::println);
+	}
 }
