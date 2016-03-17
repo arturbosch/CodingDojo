@@ -15,7 +15,7 @@ public class PrimsTest {
 	}
 
 	@Test
-	public void printPrimsUntillN() {
+	public void printPrimsUntilN() {
 		List<Integer> prims = Prims.sequenceFor(100);
 		System.out.println(prims);
 	}

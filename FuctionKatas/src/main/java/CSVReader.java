@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,20 +8,6 @@ import java.util.stream.IntStream;
  * @author artur
  */
 public class CSVReader {
-
-	public static void main(String... args) {
-
-		List<String> strings = Arrays.asList(
-			"Name;Strasse;Ort;Alter",
-			"Peter Pan;Am Hang 5;12345 Einsam;42",
-			"Maria Schmitz;Kölner Straße 45;50123 Köln;43",
-			"Paul Meier;Münchener Weg 1;87654 München;65");
-
-		CSVReader csvReader = new CSVReader();
-		List<String> list = csvReader.printAsTable(strings);
-
-		list.forEach(System.out::println);
-	}
 
 	public List<String> printAsTable(List<String> lines) {
 		if (lines.isEmpty() || lines.size() < 2)
