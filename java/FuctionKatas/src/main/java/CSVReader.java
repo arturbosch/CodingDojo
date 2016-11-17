@@ -93,7 +93,7 @@ public class CSVReader {
 	private int getMaxSize(List<String> list) {
 		return list.stream()
 			.max(Comparator.comparingInt(String::length))
-			.get()
+			.orElseGet(() -> "")
 			.length();
 	}
 
