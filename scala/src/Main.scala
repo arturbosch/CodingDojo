@@ -1,9 +1,10 @@
 object Main {
-  def main(args: Array[String]): Unit = {
-    printName("Artur")
+  def main(args: Array[String]) = {
+    println("Hello, World!")
+    Main.hello()
   }
 
-  def printName(name: String) {
-    println("Hello " + name)
+  def hello() {
+    println("Hello, World!")
   }
 }
