@@ -9,5 +9,7 @@ Language candidates are:
 ### Exercises
 
 1. Hello World
-2. 'TestFramework' aka Assert.matches(5,10) or 5.matches(10) or 5 matches 10
+2. Assertion aka Assert.matches(5,10) or 5.matches(10) or 5 matches 10
 3. FizzBuzz
+4. LinesOfCode
+5. Benchmark Suite

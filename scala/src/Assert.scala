@@ -2,6 +2,7 @@
   * @author Artur Bosch
   */
 object Assert {
+
   def main(args: Array[String]): Unit = {
     5 matches ""
     5 matches 10
