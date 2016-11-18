@@ -4,6 +4,8 @@ def lines_of_code(path)
       .select { |line| !line.empty? }
       .select { |line| !line.start_with? '#' }
       .select { |line| !line.start_with? 'end' }
+      .select { |line| !line.start_with? 'require' }
+      .select { |line| !line.start_with? 'module' }
       .select { |line| !line.start_with? '}' }
       .count
 end

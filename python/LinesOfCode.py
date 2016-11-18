@@ -16,6 +16,7 @@ def is_no_import_or_module(line):
     return line.startswith("import") or line.startswith("from") or line.startswith("module")
 
 
-path = "./FizzBuzz.py"
-loc = lines_of_code(path)
-print("File: ", path.split(sep="/")[-1], " - LOC: ", loc)
+if __name__ == "__main__":
+    path = "./FizzBuzz.py"
+    loc = lines_of_code(path)
+    print("File: ", path.split(sep="/")[-1], " - LOC: ", loc)

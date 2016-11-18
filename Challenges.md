@@ -13,3 +13,4 @@ Language candidates are:
 3. FizzBuzz
 4. LinesOfCode
 5. Benchmark Suite
+6. Google Search

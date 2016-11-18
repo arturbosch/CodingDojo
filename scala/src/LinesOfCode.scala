@@ -1,5 +1,3 @@
-import java.io.Closeable
-
 import scala.io.Source
 
 /**
@@ -16,7 +14,7 @@ object LinesOfCode {
       case _ => false
     }
 
-    using(Source.fromFile(path)) { stream =>
+    Resource.using(Source.fromFile(path)) { stream =>
       stream.getLines()
         .map(line => line.trim)
         .filterNot(line => line.isEmpty)
@@ -26,13 +24,6 @@ object LinesOfCode {
         .count(_ => true)
     }
   }
-
-  def using[R <: Closeable, T](stream: R)(f: R => T): T =
-    try {
-      f(stream)
-    } finally {
-      stream.close()
-    }
 
   def main(args: Array[String]): Unit = {
     val path = "./scala/src/FizzBuzz.scala"
