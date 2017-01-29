@@ -1,12 +1,7 @@
-List of done Katas
-=====================================================
+This is my coding dojo.
 
-Rot13 - https://app.box.com/s/2v6r82ec5q421bfsian5
+From time to time I work on simple or difficult little programs to 
+stay in shape with different programming languages :)
 
-GameOfLife - http://www.codingdojo.org/ - KataGameOfLife
-
-Tannenbaum - https://app.box.com/s/l0w5imeu9t3j6jj2glne
-
-Linked List
-
-FuctionKatas - Collection of functional katas like primes, pythagoras, fibonacci numbers etc
+If my repo sounds interesting to you, take a look at 'Challenges.md' where
+I note my done exercises for the different languages I chose.
