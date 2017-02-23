@@ -24,8 +24,10 @@ class LicenceHeader {
 				.filter { Files.isRegularFile(it) }
 				.filter { path -> endings.any { path.toString().endsWith(it) } }
 				.forEach { path ->
+			def content = new String(path.readBytes())
+			if (content.startsWith("/*")) return
+			def newContent = licence + "\n\n" + content
 			println("Writing licence header to $path")
-			def newContent = licence + "\n\n" + new String(path.readBytes())
 			Files.write(path, newContent.getBytes())
 		}
 	}
