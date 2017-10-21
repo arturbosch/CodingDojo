@@ -1,5 +1,3 @@
-import java.util.ArrayList
-
 /**
  * Einstiegspunkt des Programs.
  */
@@ -167,7 +165,7 @@ private fun extractProbabilities(histogram: Map<Char, Int>): Map<Char, Double> {
  * Der kleinste Wert weist den Buchstaben mit der groessten Wahrscheinlichkeit auf.
  */
 private fun evaluateStatisticDistances(percents: Map<Char, Double>): Int {
-	val distances = (0..25).mapTo(ArrayList()) { shift ->
+	val distances = (0..25).map { shift ->
 		shift to calculateStatisticDistance(percents, shift)
 	}
 	val minDistance = distances.minBy { it.second }?.first
