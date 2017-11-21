@@ -2,6 +2,7 @@
 
 import sys
 import argparse
+import time
 import urllib.request
 from bs4 import BeautifulSoup
 
@@ -27,24 +28,43 @@ class Meal:
                " - " + self.price_students + "/" + self.price_employees
 
 
+today = time.localtime(time.time())[6]  # Day of Week
+DAYS = 7
 food_plan_day_lookup_table = {
-    'food-plan-0': 'Monday',
-    'food-plan-1': 'Tuesday',
-    'food-plan-2': 'Wednesday',
-    'food-plan-3': 'Thursday',
-    'food-plan-4': 'Friday',
-    'Everyday': 'Everyday'
+    'food-plan-0': today,
+    'food-plan-1': (today + 1) % DAYS,
+    'food-plan-2': (today + 2) % DAYS,
+    'food-plan-3': (today + 3) % DAYS,
+    'food-plan-4': (today + 4) % DAYS,
+    'food-plan-5': (today + 7) % DAYS,  # exclude saturday and sunday
+    'food-plan-6': (today + 8) % DAYS,
+    'food-plan-7': (today + 9) % DAYS,
+    'food-plan-8': (today + 10) % DAYS,
+    'food-plan-9': (today + 11) % DAYS,
+    'Everyday': -1
+}
+day_of_week_lookup = {
+    0: 'Monday',
+    1: 'Tuesday',
+    2: 'Wednesday',
+    3: 'Thursday',
+    4: 'Friday',
+    5: 'Monday',  # to be sure as DAYS = 7
+    6: 'Tuesday',
 }
 
 
-def lookup_day(day_string):
-    return food_plan_day_lookup_table.get(day_string, 'Everyday')
+def lookup_day(food_plan_string):
+    day_of_week = food_plan_day_lookup_table.get(food_plan_string, -1)
+    day_string = day_of_week_lookup.get(day_of_week, 'Everyday')
+    return day_string
 
 
 def extract_meals(page):
     meals = []
     for plan in page.find_all('div', {'class': 'food-plan'}):
-        day = lookup_day(plan.get('id', 'Everyday'))
+        plan_id = plan.get('id', 'Everyday')
+        day = lookup_day(plan_id)
         find_meals_in_plan(day, meals, plan)
     return meals
 
@@ -117,9 +137,9 @@ mensen = {
 
 
 def string2bool(arg):
-    if arg.lower() in ('yes', 'true', 'True', 't', 'y', '1'):
+    if arg.lower() in ('yes', 'true', 't', 'y', '1'):
         return True
-    elif arg.lower() in ('no', 'false', 'False', 'f', 'n', '0'):
+    elif arg.lower() in ('no', 'false', 'f', 'n', '0'):
         return False
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
